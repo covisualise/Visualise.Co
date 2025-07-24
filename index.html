@@ -3,32 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visulaise.Co</title>
+    <title>Visualise.Co </title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Fraunces:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
-        <!-- Floating particles -->
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+        <div class="background-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div> <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
 
-        <h1 id="mainheading">Welcome To Visualize.Co</h1>
+        <h1 id="mainheading">Welcome To <span class="highlight-text">Visualise.Co</span></h1>
         <p id="sitemotto">Your One Stop Solution For All Your Editing Needs.</p>
         
         <div class="button-container">
-            <a href="portfolio.html">
-            <button id="button" onclick="handleClick('primary')">Get Started</button>
+            <a href="portfolio.html" class="action-btn primary-btn">
+                Get Started <i class="fas fa-arrow-right"></i>
             </a>
-            <a href="about.html">
-                <button class="secondary-button" onclick="handleClick('secondary')">Learn More</button>
+            <a href="about.html" class="action-btn secondary-btn">
+                Learn More <i class="fas fa-info-circle"></i>
             </a>
-            
-        
         </div>
 
         <div class="info-card">
@@ -37,6 +43,5 @@
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>

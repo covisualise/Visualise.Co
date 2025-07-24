@@ -1,49 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visulaise.Co</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="portfolio.css">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualise.Co - Creative Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="portfolio.css" />
 </head>
 <body>
     <div class="container">
-        <!-- Enhanced Navigation -->
         <nav class="navigation" id="navbar">
-            <div class="logo">Portfolio</div>
+            <div class="logo"><a href="portfolio.html">Visualise.Co</a></div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Home</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="#contact-title">Contact</a></li>
             </ul>
+           
         </nav>
 
-        <!-- Hero Section -->
+        <div class="mobile-menu" id="mobile-menu">
+            <ul>
+                <li><a href="portfolio.html">Home</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#contact-title">Contact</a></li>
+            </ul>
+        </div>
+
         <section class="hero" id="home">
-            <div class="floating-element">
-                <i class="fas fa-code" style="font-size: 3rem; color: #667eea;"></i>
-            </div>
-            <div class="floating-element">
-                <i class="fas fa-palette" style="font-size: 2.5rem; color: #f5576c;"></i>
-            </div>
-            <div class="floating-element">
-                <i class="fas fa-rocket" style="font-size: 2rem; color: #4ecdc4;"></i>
+            <div class="hero-bg-elements">
+                <span class="element-1"></span>
+                <span class="element-2"></span>
+                <span class="element-3"></span>
             </div>
             
             <div class="hero-content">
-                <h1 class="hero-title">Creative Portfolio</h1>
-                <p class="hero-subtitle">Showcasing innovative designs and exceptional craftsmanship</p>
-                <a href="#work" class="cta-button">Explore My Work</a>
+                <h1 class="hero-title">Crafting <span class="highlight-text">Visual Stories</span> That Resonate</h1>
+                <p class="hero-subtitle">
+                    Showcasing innovative designs, compelling videography, and exceptional digital craftsmanship.
+                </p>
+                <a href="#work" class="cta-button">Explore My Work <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 
-        <!-- Enhanced Cards Section -->
-        <section class="cards" id="work">
+       <section class="cards" id="work">
+            <h2 class="section-heading">My Top Videos</h2>
             <div class="cards-container">
+
+                <div class="card animate-on-scroll">
+                    <div class="card-header">
+                        <div class="mastered-logo">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h2 class="card-title">Video 1</h2>
+                    </div>
+                    <div class="card-media-placeholder">
+                        <div class="video-container">
+                            <video id="video-1" class="video-player" width="100%" height="auto" controls controlsList="nodownload" playsinline poster="">
+                                <source src="videos/6.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="play-button-overlay" data-video-id="video-1">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="display: block;">
+                                    <circle cx="32" cy="32" r="32" fill="url(#redGradient)" />
+                                    <polygon points="26,20 26,44 46,32" fill="#fff" />
+                                    <defs>
+                                        <linearGradient id="redGradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF3A3A"/>
+                                            <stop offset="1" stop-color="#FF6A6A"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Cinematic storytelling through video production, from concept to final cut, creating compelling visual narratives.
+                    </p>
+                </div>
+
+                <div class="card animate-on-scroll">
+                    <div class="card-header">
+                        <div class="mastered-logo">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h2 class="card-title">Video 2</h2>
+                    </div>
+                    <div class="card-media-placeholder">
+                        <div class="video-container">
+                            <video id="video-2" class="video-player" width="100%" height="auto" controls controlsList="nodownload" playsinline poster="">
+                                <source src="videos/1.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="play-button-overlay" data-video-id="video-2">
+                                 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="display: block;">
+                                    <circle cx="32" cy="32" r="32" fill="url(#redGradient)" />
+                                    <polygon points="26,20 26,44 46,32" fill="#fff" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        A different creative project showcasing unique visual styles and editing techniques.
+                    </p>
+                </div>
 
 
                 <div class="card animate-on-scroll">
@@ -51,93 +116,79 @@
                         <div class="mastered-logo">
                             <i class="fas fa-video"></i>
                         </div>
-                        <h2 class="card-title">Videography</h2>
+                        <h2 class="card-title">Video 3</h2>
                     </div>
-                    <div class="image-container">
-                        <div class="person-image">
-                            <div class="image-placeholder">
-                                <i class="fas fa-play-circle"></i>
-                            </div>
-                        </div>
-                        <div class="person-image">
-                            <div class="image-placeholder">
-                                <i class="fas fa-film"></i>
+                    <div class="card-media-placeholder">
+                        <div class="video-container">
+                            <video id="video-3" class="video-player" width="100%" height="auto" controls controlsList="nodownload" playsinline poster="">
+                                <source src="videos/vypar app.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="play-button-overlay" data-video-id="video-3">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="display: block;">
+                                    <circle cx="32" cy="32" r="32" fill="url(#redGradient)" />
+                                    <polygon points="26,20 26,44 46,32" fill="#fff" />
+                                    <defs>
+                                        <linearGradient id="redGradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF3A3A"/>
+                                            <stop offset="1" stop-color="#FF6A6A"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
                             </div>
                         </div>
                     </div>
                     <p class="card-description">
                         Cinematic storytelling through video production, from concept to final cut, creating compelling visual narratives.
                     </p>
-                    <div class="card-actions">
-                        <a href="#" class="action-btn">Watch Reel</a>
-                        <a href="#" class="action-btn">Get Quote</a>
-                    </div>
                 </div>
-
 
             </div>
         </section>
 
-        <!-- Enhanced Footer -->
         <footer class="footer-section" id="contact">
             <div class="footer-content">
                 <div class="contact-section">
                     <h3 id="contact-title">Get In Touch</h3>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/visualise._co?igsh=azZzbXVrdWMxemJm" class="social-link">
+                        <a href="https://www.instagram.com/visualise._co?igsh=azZzbXVrdWMxemJm" target="_blank" rel="noopener noreferrer" class="social-link">
                             <div class="social-icon">
                                 <i class="fab fa-instagram"></i>
                             </div>
-                            <span>Follow on Instagram</span>
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://wa.me/+919598822384" class="social-link">
+                        <a href="https://wa.me/+919598822384" target="_blank" rel="noopener noreferrer" class="social-link">
                             <div class="social-icon">
                                 <i class="fab fa-whatsapp"></i>
                             </div>
-                            <span>Message on WhatsApp</span>
+                            <span>WhatsApp</span>
                         </a>
-                        <a href="https://t.me/Visualiseco" class="social-link">
+                        <a href="https://t.me/Visualiseco" target="_blank" rel="noopener noreferrer" class="social-link">
                             <div class="social-icon">
                                 <i class="fab fa-telegram-plane"></i>
                             </div>
-                            <span>Message on Telegram</span>
+                            <span>Telegram</span>
                         </a>
                     </div>
                 </div>
                 
-                <div class="contact-section">
+                <div class="contact-section quick-links-section">
                     <h3>Quick Links</h3>
-                    <div class="social-links">
-                        <a href="clients.html" class="social-link">
-                            <div class="social-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <span>My Clients</span>
-                        </a>
-                        <a href="aboutme.html" class="social-link">
-                            <div class="social-icon">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <span>About Me</span>
-                        </a>
-                        <a href="#" class="social-link">
-                            <div class="social-icon">
-                                <i class="fas fa-blog"></i>
-                            </div>
-                            <span>Blog</span>
-                        </a>
-                    </div>
+                    <ul class="footer-nav-list">
+                        <li><a href="clients.html"><i class="fas fa-handshake"></i> My Clients</a></li>
+                        <li><a href="about.html"><i class="fas fa-user"></i> About Me</a></li>
+                        <li><a href="#"><i class="fas fa-blog"></i> Blog</a></li>
+                        <li><a href="#work"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                    </ul>
                 </div>
             </div>
             
             <div class="footer-end">
-                <p>&copy; 2025 Visualise.Co Crafted with passion and precision.</p>
+                <p>&copy; 2025 Visualise.Co. All rights reserved. Crafted with passion and precision.</p>
             </div>
         </footer>
     </div>
 
     <script src="portfolio.js"></script>
-        
-
 </body>
 </html>

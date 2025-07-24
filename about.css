@@ -1,7 +1,40 @@
+:root {
+    /* Modern & Vibrant Color Palette (Updated to match new screenshot) */
+    --color-primary-purple-dark: #6C5CE7; /* Deeper purple for background gradient start (from screenshot) */
+    --color-primary-purple-light: #8A7CEB; /* Lighter purple for background gradient end (from screenshot) */
+    --color-accent-coral: #E74C3C; /* More reddish-orange accent (from screenshot) */
+    --color-accent-light: #FF6347; /* Lighter shade of reddish-orange for glows/hovers */
+
+    --color-text-light: #ffffff; /* Main white text */
+    --color-text-dimmed: #f0f0f0; /* Light gray for secondary text */
+    --color-text-dark: #333333; /* For elements on a light background */
+
+    /* Typography */
+    --font-family-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* General Styling Variables */
+    --border-radius-card: 16px; /* Standard card border-radius */
+    --border-radius-button: 50px; /* Pill-shaped buttons */
+    --transition-speed: 0.4s;
+
+    /* Shadows and Glassmorphism */
+    --shadow-soft: rgba(0, 0, 0, 0.15);
+    --shadow-medium: rgba(0, 0, 0, 0.25);
+    --shadow-strong: rgba(0, 0, 0, 0.4);
+    --shadow-accent-light: rgba(231, 76, 60, 0.3); /* Soft accent shadow, based on new coral */
+    --shadow-accent-dark: rgba(231, 76, 60, 0.5); /* Strong accent shadow, based on new coral */
+
+    --glass-bg: rgba(255, 255, 255, 0.08); /* Translucent background for glass elements */
+    --glass-border: rgba(255, 255, 255, 0.18); /* Border for glass elements */
+    --glass-hover-bg: rgba(255, 255, 255, 0.15); /* Slightly more opaque on hover */
+    --glass-blur-level: 15px; /* Standard blur for glassmorphism */
+}
+
+/* Base Styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -10,10 +43,10 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-family-main);
   line-height: 1.6;
-  color: #ffffff;
-  background: linear-gradient(135deg, #1e1e1e, #0d0d0d); /* Basic dark gradient */
+  color: var(--color-text-light); /* Use light text color */
+  background: linear-gradient(135deg, var(--color-primary-purple-dark), var(--color-primary-purple-light)); /* Apply purple gradient */
   overflow-x: hidden;
 }
 
@@ -29,7 +62,7 @@ body {
 h1 {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-text-light); /* Use light text color */
   text-align: center;
   margin-bottom: 3rem;
   letter-spacing: -1px;
@@ -39,21 +72,22 @@ h1 {
 .container p {
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
+  background: var(--glass-bg); /* Use glassmorphism background */
+  backdrop-filter: blur(var(--glass-blur-level)); /* Use blur level variable */
+  -webkit-backdrop-filter: blur(var(--glass-blur-level));
+  border: 1px solid var(--glass-border); /* Use glassmorphism border */
+  border-radius: var(--border-radius-card); /* Use card border-radius */
   padding: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; /* Use transition speed variable */
+  box-shadow: 0 6px 20px var(--shadow-soft); /* Use soft shadow variable */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  color: var(--color-text-light); /* Ensure text is light on glassmorphism */
 }
 
 .container p:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(255, 107, 107, 0.15);
-  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px var(--shadow-accent-light); /* Use accent shadow for hover */
+  background: var(--glass-hover-bg); /* Use glassmorphism hover background */
 }
 
 /* Responsive design */
@@ -139,9 +173,9 @@ body::-webkit-scrollbar {
   width: 8px;
 }
 body::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: var(--color-primary-purple-dark); /* Use a dark purple for track */
 }
 body::-webkit-scrollbar-thumb {
-  background: #333;
+  background: var(--color-accent-coral); /* Use accent color for thumb */
   border-radius: 10px;
 }

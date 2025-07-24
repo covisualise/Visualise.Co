@@ -1,7 +1,39 @@
+/* --- Root Variables (Consistent with portfolio.css's Light Theme) --- */
+:root {
+    /* Background Gradient Colors from Screenshot */
+    --bg-gradient-start: #5e72e4; /* Medium blue/purple */
+    --bg-gradient-end: #8a4cdb;   /* Strong purple */
+
+    /* Text Colors */
+    --text-color-light: #ffffff; /* For headings and text on dark/gradient backgrounds */
+    --text-color-dark: #333333;  /* For text on light backgrounds (though less used on index) */
+
+    /* Accent Colors */
+    --primary-accent: #ff5f6d;   /* Bright red for highlights/CTA */
+    --secondary-accent: #e04455; /* Slightly darker red for hover */
+    --link-color: #667eea; /* A blue for general links (if any on this page) */
+
+    /* Backgrounds for Elements */
+    --card-bg: #ffffff;         /* White for info card */
+
+    /* Shadows */
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Global Resets --- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Default body font */
+    line-height: 1.6;
+    color: var(--text-color-light); /* Default text color is light */
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrollbars from particles */
 }
 
 .container {
@@ -11,11 +43,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(43deg, #1a1a1a 0%, #333 46%, #4d4d4d 100%);
-    background-size: 400% 400%;
+    background: linear-gradient(43deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%); /* Blue-to-purple gradient */
+    background-size: 400% 400%; /* For the animation */
     animation: gradientShift 8s ease infinite;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Ensure content stays within bounds */
+    padding: 20px; /* Add some padding for smaller screens */
+    text-align: center; /* Center overall content */
 }
 
 @keyframes gradientShift {
@@ -24,38 +58,52 @@
     100% { background-position: 0% 50%; }
 }
 
-/* Floating particles */
+/* --- Floating particles (Consistent with portfolio.css hero particles) --- */
+/* The HTML uses .particle directly, but for clarity on the index page,
+   it's conceptually the 'background-particles' area. */
 .particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.6);
+    width: 80px; /* Larger, more diffuse */
+    height: 80px;
+    background: rgba(255, 255, 255, 0.15); /* Very subtle white opacity */
     border-radius: 50%;
-    animation: float 6s ease-in-out infinite;
+    animation: floatParticle 15s ease-in-out infinite; /* Slower, gentler animation */
+    box-shadow: none; /* No strong shadow */
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
-    50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+@keyframes floatParticle { /* Renamed from 'float' for consistency */
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    50% { transform: translateY(-20px) rotate(10deg); opacity: 1; }
 }
 
+/* Particle positioning (Adjust if your index.html has more particles than the original 5) */
 .particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
 .particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
 .particle:nth-child(3) { top: 80%; left: 30%; animation-delay: 4s; }
 .particle:nth-child(4) { top: 30%; left: 70%; animation-delay: 1s; }
 .particle:nth-child(5) { top: 70%; left: 10%; animation-delay: 3s; }
+.particle:nth-child(6) { top: 45%; left: 5%; animation-delay: 6s; }
+.particle:nth-child(7) { top: 15%; left: 90%; animation-delay: 8s; }
+.particle:nth-child(8) { top: 95%; left: 60%; animation-delay: 0.5s; }
 
+
+/* --- Main Heading & Motto --- */
 #mainheading {
-    color: #ffffff;
-    font-family: "Fraunces", serif;
+    color: var(--text-color-light); /* White text */
+    font-family: "Montserrat", sans-serif; /* Consistent heading font */
     font-size: clamp(2.5rem, 8vw, 4.5rem);
     font-weight: 700;
     padding-bottom: 1rem;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.4);
+    text-shadow: none; /* No text-shadow as per screenshot */
     animation: opening 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     text-align: center;
     letter-spacing: -0.02em;
     position: relative;
+    z-index: 10;
+}
+
+#mainheading .highlight-text {
+    color: var(--primary-accent); /* Red highlight */
 }
 
 #mainheading::after {
@@ -66,7 +114,7 @@
     transform: translateX(-50%);
     width: 0;
     height: 3px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent); /* White gradient underline */
     animation: underlineExpand 2s ease 1s forwards;
 }
 
@@ -86,15 +134,16 @@
 }
 
 #sitemotto {
-    font-family: "Fraunces", serif;
+    font-family: "Poppins", sans-serif; /* Consistent body font */
     font-size: clamp(1rem, 3vw, 1.2rem);
-    color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    text-shadow: none; /* No text-shadow as per screenshot */
     animation: ending 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
     opacity: 0;
     text-align: center;
     max-width: 600px;
     line-height: 1.6;
+    z-index: 10;
 }
 
 @keyframes ending {
@@ -108,37 +157,64 @@
     }
 }
 
+/* --- Button Container --- */
 .button-container {
     margin-top: 4rem;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
+    z-index: 10;
 }
 
-#button, .secondary-button {
-    padding: 12px 32px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+/* --- Buttons (Consistent with portfolio.css action-btn) --- */
+.action-btn { /* This is the new base class for your buttons */
+    padding: 14px 32px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    font-size: 16px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
     animation: buttonAppear 1s ease 1.5s forwards;
     opacity: 0;
     transform: translateY(20px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
 }
 
-.secondary-button {
-    background: rgba(255, 255, 255, 0.2);
+.primary-btn {
+    background-color: var(--primary-accent); /* Solid red button */
+    color: var(--text-color-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation-delay: 1.5s;
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-accent); /* Darker red on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.secondary-button { /* Reusing secondary-button class name for the learn more button */
+    background-color: transparent; /* Transparent background */
+    color: var(--text-color-light); /* White text */
+    border: 2px solid rgba(255, 255, 255, 0.6); /* White outline */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     animation-delay: 1.7s;
+}
+
+.secondary-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight white fill on hover */
+    border-color: rgba(255, 255, 255, 0.9); /* Brighter border on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes buttonAppear {
@@ -148,77 +224,95 @@
     }
 }
 
-#button::before, .secondary-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-#button:hover, .secondary-button:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.secondary-button:hover {
-    background: rgba(255, 255, 255, 0.4);
-}
-
-#button:hover::before, .secondary-button:hover::before {
-    left: 100%;
-}
-
-#button:active, .secondary-button:active {
-    transform: translateY(0);
-}
-
-/* Glassmorphism card */
+/* --- Info Card (Light theme style, no glassmorphism blur) --- */
 .info-card {
     position: absolute;
     bottom: 2rem;
     left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
+    transform: translateX(-50%); /* Keeps it centered horizontally */
+    background: var(--card-bg); /* White background */
+    backdrop-filter: none;
+    border-radius: 12px;
     padding: 1.5rem 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     animation: cardSlideUp 1s ease 2s forwards;
     opacity: 0;
-    transform: translateX(-50%) translateY(50px);
+    /* Removed translateY(50px) from initial transform here to avoid conflict in media query */
     text-align: center;
-    color: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
-    font-size: 0.9rem;
+    color: var(--text-color-dark); /* Dark text on white card */
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-light);
+    z-index: 10;
 }
 
 @keyframes cardSlideUp {
-    to {
+    0% { /* Start from the bottom for the animation */
+        opacity: 0;
+        transform: translateX(-50%) translateY(50px);
+    }
+    100% { /* End at the centered position */
         opacity: 1;
         transform: translateX(-50%) translateY(0);
     }
 }
 
-/* Responsive design */
+/* --- Responsive design --- */
 @media (max-width: 768px) {
+    #mainheading {
+        font-size: clamp(2rem, 7vw, 3.5rem);
+    }
+    #sitemotto {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        max-width: 90%;
+    }
     .button-container {
         flex-direction: column;
         align-items: center;
-        margin-top: 2rem;
+        margin-top: 2.5rem;
+        gap: 1rem;
     }
-
-    #button, .secondary-button {
-        width: 200px;
+    .action-btn {
+        width: 240px;
+        padding: 12px 25px;
+        font-size: 0.95rem;
     }
-
     .info-card {
-        margin: 0 1rem;
-        padding: 1rem 1.5rem;
+        /* Removed margin: 0 1rem; as it was causing issues with centering */
+        padding: 1.2rem 1.8rem;
+        bottom: 1.5rem;
+        width: 90%;
+        font-size: 0.85rem;
+        /* Ensure centering properties are maintained explicitly for mobile */
+        left: 50%;
+        transform: translateX(-50%); /* Keep it horizontally centered */
+        /* The animation will still bring it up from the bottom */
+    }
+    /* No need to re-define @keyframes cardSlideUp here unless its behavior truly changes for mobile */
+
+    .particle {
+        width: 40px;
+        height: 40px;
+    }
+    @keyframes floatParticle {
+        0%, 100% { transform: translateY(0px) rotate(0deg) scale(0.8); opacity: 0.4; }
+        50% { transform: translateY(-15px) rotate(180deg) scale(0.9); opacity: 0.7; }
+    }
+}
+
+@media (max-width: 480px) {
+    #mainheading {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+    }
+    #sitemotto {
+        font-size: clamp(0.85rem, 2.2vw, 1rem);
+    }
+    .action-btn {
+        width: 90%;
+    }
+    .info-card {
+        padding: 1rem 1.2rem;
+        bottom: 1rem;
+        font-size: 0.8rem;
     }
 }
